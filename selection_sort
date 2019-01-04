@@ -1,0 +1,46 @@
+#include<stdio.h>
+void print();
+void selectionsort();
+int a[10];// Array Declaration
+int n;// Size of Array
+
+//used to print the sorted array
+void print()
+{
+	int i;
+	printf("Sorted Array Is\n");
+	for(i=0;i<n;i++)
+    printf("%d\t",a[i]);
+    printf("\n");
+}
+
+// this function is to sort the elements of the array
+void selectionsort()
+{
+ 	int min,temp,i,j;
+ 	for(i=0;i<n;i++)
+ 	{
+ 		 min=i;
+ 		 for(j=i+1;j<n;j++)
+ 		 {
+ 			  if(a[j]<a[min])
+    	      min=j;
+ 		 }
+ 		 temp=a[i];
+ 		 a[i]=a[min];
+ 	 	 a[min]=temp;
+ 	}
+}
+
+int main()
+{
+	int i;
+	printf("Enter Number Of Terms:");
+	scanf("%d",&n);
+	printf("Enter Array:");
+	for(i=0;i<n;i++)
+   	scanf("%d",&a[i]);
+ 	selectionsort();
+	print();
+	return 0;
+}
